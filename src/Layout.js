@@ -4,6 +4,7 @@ import { getHeight } from "./Utils";
 
 import { GameStateContext } from "./GameStateContext";
 import { ReadyView } from "./ReadyView";
+import { GameOver } from "./GameOver";
 
 export function Layout(props) {
   const gameStateContext = React.useContext(GameStateContext);
@@ -16,7 +17,7 @@ export function Layout(props) {
     } else if (activeState === "Playing") {
       return <Wrap>{props.children}</Wrap>;
     } else if (activeState === "Finished") {
-      return <div> </div>;
+      return <GameOver />;
     }
   }
 

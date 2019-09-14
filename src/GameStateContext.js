@@ -69,6 +69,10 @@ let reducer = (state, action) => {
       const s = {
         ...state,
         ...secondUpdate,
+        timeToNext:
+          secondUpdate.score > firstUpdate.score
+            ? state.timeToNext * 0.9
+            : state.timeToNext,
         cigarettes
       };
 

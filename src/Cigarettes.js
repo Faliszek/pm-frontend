@@ -6,10 +6,9 @@ import _ from "lodash/fp";
 
 import { Garbage } from "./Garbage";
 import { Sand } from "./Sand";
-
 import { Water } from "./Water";
-
 import { Lives } from "./Lives";
+import { Score } from "./Score";
 
 import pet from "./assets/pet.png";
 
@@ -21,6 +20,7 @@ let genX = width => Math.floor(Math.random() * (width - 20 + 1));
 let generateCigarette = width => ({
   id: _.uniqueId("c"),
   left: genX(width), //random int
+  // left: 175,
   top: -50,
   catched: false,
   width: 20,
@@ -61,16 +61,23 @@ export function Cigarettes(props) {
     //eslint-disable-next-line
   }, [game.state.timeToNext]);
 
+  React.useEffect(() => {
+    if (game.state.lives === 0) {
+      game.dispatch({ type: "updateStateGame", payload: "Finished" });
+    }
+  }, [game.state.lives]);
+
   return (
     <Wrap>
       <Sand>
+        {game.state.cigarettes.map(c => (
+          <Pet src={pet} key={c.id} style={{ top: c.top, left: c.left }} />
+        ))}{" "}
         <Garbage innerRef={garbageRef} />
-      </Sand>{" "}
-      {game.state.cigarettes.map(c => (
-        <Pet src={pet} key={c.id} style={{ top: c.top, left: c.left }} />
-      ))}{" "}
+      </Sand>
       <Water />
       <Lives />
+      <Score />
     </Wrap>
   );
 }
@@ -84,7 +91,7 @@ const Wrap = styled.div`
 `;
 
 const Pet = styled.img`
-  position: absolute;
+  position: fixed;
   height: 50px;
   width: 20px;
   display: block;
