@@ -35,8 +35,6 @@ let reducer = (state, action) => {
     case "updateGame":
       let { garbageRef } = action.payload;
 
-      console.log("before", state);
-
       // check when player looses live
       const firstUpdate = state.cigarettes.reduce((state, c) => {
         let outOfBouandry =
@@ -73,8 +71,6 @@ let reducer = (state, action) => {
         ...secondUpdate,
         cigarettes
       };
-
-      console.log("after", s);
 
       return s;
 

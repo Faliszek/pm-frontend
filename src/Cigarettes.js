@@ -24,7 +24,6 @@ let generateCigarette = width => ({
 });
 
 const width = window.screen.width;
-console.log("width", width);
 
 export function Cigarettes(props) {
   const game = React.useContext(GameStateContext);
