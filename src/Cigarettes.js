@@ -1,6 +1,5 @@
 import React from "react";
 import styled from "styled-components";
-import { CigaretteContext } from "./CigaretteContext";
 
 import { GameStateContext } from "./GameStateContext";
 import _ from "lodash/fp";
@@ -20,26 +19,23 @@ let generateCigarette = width => ({
   top: -50,
   catched: false,
   width: 20,
-  height: 50
+  height: 50,
+  locked: false
 });
 
 const width = window.screen.width;
 console.log("width", width);
 
 export function Cigarettes(props) {
-  const { state, dispatch } = React.useContext(CigaretteContext);
-
   const game = React.useContext(GameStateContext);
   const garbageRef = React.useRef(null);
 
   React.useEffect(() => {
     let intervalId = setInterval(() => {
-      dispatch({
-        type: "update",
+      game.dispatch({
+        type: "updateGame",
         payload: {
-          garbageRef: garbageRef,
-          onDrop: () => game.dispatch({ type: "reduceLives" }),
-          onCatch: () => game.dispatch({ type: "addPoints" })
+          garbageRef: garbageRef
         }
       });
     }, s);
@@ -51,24 +47,23 @@ export function Cigarettes(props) {
   React.useEffect(() => {
     let cigaretteInterval = setInterval(() => {
       console.log("create cigarette");
-      dispatch({
+      game.dispatch({
         type: "addCigarette",
         payload: generateCigarette(width)
       });
-    }, state.timeToNext);
+    }, game.state.timeToNext);
     return () => clearInterval(cigaretteInterval);
     //eslint-disable-next-line
-  }, [state.timeToNext]);
+  }, [game.state.timeToNext]);
 
   return (
     <Wrap>
       <Sand>
         <Garbage innerRef={garbageRef} />
       </Sand>{" "}
-      {state.cigarettes.map(
-        c =>
-          !c.catched && <Pet key={c.id} style={{ top: c.top, left: c.left }} />
-      )}{" "}
+      {game.state.cigarettes.map(c => (
+        <Pet key={c.id} style={{ top: c.top, left: c.left }} />
+      ))}{" "}
       <Water />
     </Wrap>
   );
