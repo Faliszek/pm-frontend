@@ -1,7 +1,7 @@
 import React from "react";
 import styled from "styled-components";
-// import lostLife from "./assets/lostLife";
-// import life from "./assets/life";
+import lostLife from "./assets/serceszare.png";
+import life from "./assets/serceczerwone.png";
 
 import { GameStateContext } from "./GameStateContext";
 
@@ -11,9 +11,9 @@ export function Lives() {
 
   return (
     <Styled>
-      {/* {lives.map(l =>
-        l <= game.state.lives ? <Image src={life} /> : <Image src={lostLife} />
-      )} */}
+      {lives.map(l =>
+        l <= game.state.lives ? <Heart src={life} /> : <Heart src={lostLife} />
+      )}
     </Styled>
   );
 }
@@ -22,6 +22,11 @@ const Styled = styled.div`
   position: absolute;
   top: 2vh;
   left: 2vw;
+  width: 40vw;
+  display: flex;
+  justify-content: space-between;
 `;
 
-const Image = styled.img``;
+const Heart = styled.img`
+  width: 33%;
+`;

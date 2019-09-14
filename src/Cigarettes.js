@@ -19,7 +19,6 @@ let genX = width => Math.floor(Math.random() * (width - 20 + 1));
 let generateCigarette = width => ({
   id: _.uniqueId("c"),
   left: genX(width), //random int
-  // left: 375 / 2, //random int
   top: -50,
   catched: false,
   width: 20,
@@ -62,7 +61,6 @@ export function Cigarettes(props) {
 
   return (
     <Wrap>
-      <Lives />
       <Sand>
         <Garbage innerRef={garbageRef} />
       </Sand>{" "}
@@ -70,6 +68,7 @@ export function Cigarettes(props) {
         <Pet src={pet} key={c.id} style={{ top: c.top, left: c.left }} />
       ))}{" "}
       <Water />
+      <Lives />
     </Wrap>
   );
 }
@@ -87,4 +86,5 @@ const Pet = styled.img`
   height: 50px;
   width: 20px;
   display: block;
+  z-index: 10;
 `;
