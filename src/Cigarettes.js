@@ -17,8 +17,8 @@ let s = 1000 / 60;
 let genX = width => Math.floor(Math.random() * (width - 20 + 1));
 let generateCigarette = width => ({
   id: _.uniqueId("c"),
-  // left: genX(width), //random int
-  left: 175,
+  left: genX(width), //random int
+  // left: 175,
   top: -50,
   catched: false,
   width: 20,
