@@ -1,5 +1,7 @@
 import React from "react";
 import styled from "styled-components";
+import Div100vh from "react-div-100vh";
+
 import { GameStateContext } from "./GameStateContext";
 import { ReadyView } from "./ReadyView";
 
@@ -18,7 +20,7 @@ export function Layout(props) {
     }
   }
 
-  return display();
+  return <Div100vh>{display()}</Div100vh>;
 }
 
 const Wrap = styled.div`
@@ -27,4 +29,5 @@ const Wrap = styled.div`
   width: 100vw;
   height: 100vh;
   background: tomato;
+  overflow-y: hidden;
 `;
