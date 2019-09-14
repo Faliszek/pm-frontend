@@ -1,6 +1,6 @@
 import * as React from "react";
 
-let Cigarettes = React.createContext();
+let CigaretteContext = React.createContext();
 
 let initialState = {
   cigarettes: []
@@ -15,18 +15,20 @@ let reducer = (state, action) => {
   }
 };
 
-function CigarettesProvider(props) {
+function CigaretteProvider(props) {
   // [A]
   let [state, dispatch] = React.useReducer(reducer, initialState);
   let value = { state, dispatch };
 
   // [B]
   return (
-    <Cigarettes.Provider value={value}>{props.children}</Cigarettes.Provider>
+    <CigaretteContext.Provider value={value}>
+      {props.children}
+    </CigaretteContext.Provider>
   );
 }
 
-let CigarettesConsumer = Cigarettes.Consumer;
+let CigaretteConsumer = CigaretteContext.Consumer;
 
 // [C]
-export { Cigarettes, CigarettesProvider, CigarettesConsumer };
+export { CigaretteContext, CigaretteProvider, CigaretteConsumer };
