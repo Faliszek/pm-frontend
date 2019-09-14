@@ -9,6 +9,8 @@ import { Sand } from "./Sand";
 
 import { Water } from "./Water";
 
+import { Lives } from "./Lives";
+
 import pet from "./assets/pet.png";
 
 let s = 1000 / 60;
@@ -29,6 +31,7 @@ const width = window.screen.width;
 
 export function Cigarettes(props) {
   const game = React.useContext(GameStateContext);
+
   const garbageRef = React.useRef(null);
 
   React.useEffect(() => {
@@ -59,6 +62,7 @@ export function Cigarettes(props) {
 
   return (
     <Wrap>
+      <Lives />
       <Sand>
         <Garbage innerRef={garbageRef} />
       </Sand>{" "}
@@ -73,7 +77,7 @@ export function Cigarettes(props) {
 const Wrap = styled.div`
   width: 100vw;
   height: 100vh;
-  position: absolute;
+  position: relative;
   top: 0;
   left: 0;
 `;
@@ -83,5 +87,4 @@ const Pet = styled.img`
   height: 50px;
   width: 20px;
   display: block;
-  background: white;
 `;
