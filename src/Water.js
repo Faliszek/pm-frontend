@@ -2,6 +2,8 @@ import React from "react";
 import styled, { keyframes } from "styled-components";
 import { Fish } from "./Fish";
 import water1 from "./assets/fala.png";
+import water2 from "./assets/fala2.png";
+import water3 from "./assets/fala3.png";
 
 const Wrapper = styled.div`
   height: 23vh;
@@ -37,14 +39,14 @@ const orbit = keyframes`
 `;
 
 const WaterFirstLayer = styled.img.attrs({
-  src: water1
+  src: water3
 })`
   /* background-image: url(${water1}); */
   width: 120vw;
   height: 26vh;
   position: relative;
   bottom: 0;
-  left: -50vw;
+  /* left: -50vw; */
   box-sizing: border-box;
 
   animation-iteration-count: infinite;
@@ -56,24 +58,24 @@ const WaterFirstLayer = styled.img.attrs({
 `;
 
 const WaterSecondLayer = styled.img.attrs({
-  src: water1
+  src: water2
 })`
   /* background-color: aqua; */
   width: 120vw;
   height: 20vh;
   position: relative;
   bottom: 0;
-  left: -50vw;
+  /* left: -50vw; */
   box-sizing: border-box;
 
   animation-iteration-count: infinite;
   animation-timing-function: linear;
   animation-name: ${orbit};
-  animation-duration: 4s;
+  animation-duration: 6s;
 
   z-index: 2;
 
-  margin-top: -20vh;
+  margin-top: -23vh;
 `;
 
 const WaterThirdLayer = styled.img.attrs({
@@ -84,23 +86,23 @@ const WaterThirdLayer = styled.img.attrs({
   height: 20vh;
   position: relative;
   bottom: 0;
-  left: -50vw;
+  /* left: -50vw; */
   box-sizing: border-box;
 
   animation-iteration-count: infinite;
   animation-timing-function: linear;
   animation-name: ${orbit};
-  animation-duration: 3s;
+  animation-duration: 4s;
 
-  z-index: 2;
+  z-index: 3;
 
-  margin-top: -15vh;
+  margin-top: -16vh;
 `;
 
 export function Water() {
   return (
     <Wrapper>
-      <WaterFirstLayer></WaterFirstLayer>
+      <WaterFirstLayer />
       <WaterSecondLayer />
       <WaterThirdLayer />
       <Fish />
