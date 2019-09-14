@@ -13,6 +13,8 @@ import { Lives } from "./Lives";
 
 import pet from "./assets/pet.png";
 
+import { getHeight } from "./Utils";
+
 let s = 1000 / 60;
 
 let genX = width => Math.floor(Math.random() * (width - 20 + 1));
@@ -75,7 +77,7 @@ export function Cigarettes(props) {
 
 const Wrap = styled.div`
   width: 100vw;
-  height: 100vh;
+  height: ${getHeight(100)};
   position: relative;
   top: 0;
   left: 0;

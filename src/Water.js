@@ -8,9 +8,10 @@ import waterDirt3 from "./assets/brunatna3.png";
 import waterDirt2 from "./assets/brunatna2.png";
 import waterDirt1 from "./assets/brunatna1.png";
 import { GameStateContext } from "./GameStateContext";
+import { getHeight } from "./Utils";
 
 const Wrapper = styled.div`
-  height: 23vh;
+  height: ${getHeight(23)};
   width: 100vw;
   position: absolute;
   overflow-x: hidden;
@@ -20,27 +21,27 @@ const Wrapper = styled.div`
 `;
 
 const orbit = keyframes`
-0%   {left:-20vw; top:0vh;}
-5%   {left:-18vw; top:1vh;}
-10%  {left:-16vw; top:2vh;}
-15%  {left:-14vw; top:3vh;}
-20%  {left:-12vw; top:2vh;}
-25%  {left:-10vw; top:1vh;}
-30%  {left:-8vw; top:0vh;}
-35%  {left:-6vw; top:1vh;}
-40%  {left:-4vw; top:2vh;}
-45%  {left:-2vw; top:3vh;}
-50%  {left:0vw; top:2vh;}
-55%  {left:-2vw; top:1vh;}  
-60%  {left:-4vw; top:0vh;}  
-65%  {left:-6vw; top:1vh;}  
-70%  {left:-8vw; top:2vh;}  
-75%  {left:-10vw; top:3vh;}  
-80%  {left:-12vw; top:2vh;}  
-85%  {left:-14vw; top:1vh;}  
-90%  {left:-16vw; top:0vh;}  
-95%  {left:-18vw; top:1vh;}  
-100% {left:-20vw; top:0vh;}  
+0%   {left:-20vw; top: ${getHeight(0)};}
+5%   {left:-18vw; top: ${getHeight(1)};}
+10%  {left:-16vw; top: ${getHeight(2)};}
+15%  {left:-14vw; top: ${getHeight(3)};}
+20%  {left:-12vw; top: ${getHeight(2)};}
+25%  {left:-10vw; top: ${getHeight(1)};}
+30%  {left:-8vw; top: ${getHeight(0)};}
+35%  {left:-6vw; top: ${getHeight(1)};}
+40%  {left:-4vw; top: ${getHeight(2)};}
+45%  {left:-2vw; top: ${getHeight(3)};}
+50%  {left:0vw; top: ${getHeight(2)};}
+55%  {left:-2vw; top: ${getHeight(1)};}  
+60%  {left:-4vw; top: ${getHeight(0)};}  
+65%  {left:-6vw; top: ${getHeight(1)};}  
+70%  {left:-8vw; top: ${getHeight(2)};}  
+75%  {left:-10vw; top: ${getHeight(3)};}  
+80%  {left:-12vw; top: ${getHeight(2)};}  
+85%  {left:-14vw; top: ${getHeight(1)};}  
+90%  {left:-16vw; top: ${getHeight(0)};}  
+95%  {left:-18vw; top: ${getHeight(1)};}  
+100% {left:-20vw; top: ${getHeight(0)};}  
 `;
 
 const WaterFirstLayer = styled.img.attrs({
@@ -48,7 +49,7 @@ const WaterFirstLayer = styled.img.attrs({
 })`
   /* background-image: url(${water1}); */
   width: 120vw;
-  height: 26vh;
+  height: ${getHeight(26)};
   position: relative;
   bottom: 0;
   /* left: -50vw; */
@@ -70,7 +71,7 @@ const WaterFirstLayerDirt = styled.img.attrs({
 })`
   /* background-image: url(${water1}); */
   width: 120vw;
-  height: 26vh;
+  height: ${getHeight(26)};
   position: absolute;
   bottom: 0;
   /* left: -50vw; */
@@ -92,7 +93,7 @@ const WaterSecondLayer = styled.img.attrs({
 })`
   /* background-color: aqua; */
   width: 120vw;
-  height: 20vh;
+  height: ${getHeight(20)};
   position: relative;
   bottom: 0;
   /* left: -50vw; */
@@ -105,7 +106,7 @@ const WaterSecondLayer = styled.img.attrs({
 
   z-index: 11;
 
-  margin-top: -23vh;
+  margin-top: ${getHeight(-23)};
 `;
 
 const WaterSecondLayerDirt = styled.img.attrs({
@@ -116,7 +117,7 @@ const WaterSecondLayerDirt = styled.img.attrs({
 })`
   /* background-color: aqua; */
   width: 120vw;
-  height: 20vh;
+  height: ${getHeight(20)};
   position: absolute;
   bottom: 0;
   /* left: -50vw; */
@@ -129,7 +130,7 @@ const WaterSecondLayerDirt = styled.img.attrs({
 
   z-index: 12;
 
-  margin-top: 7vh;
+  margin-top: ${getHeight(7)};
 
   will-change: opacity;
   transition: 0.2s ease-out opacity;
@@ -140,7 +141,7 @@ const WaterThirdLayer = styled.img.attrs({
 })`
   /* background-color: blue; */
   width: 120vw;
-  height: 20vh;
+  height: ${getHeight(20)};
   position: relative;
   bottom: 0;
   /* left: -50vw; */
@@ -153,7 +154,7 @@ const WaterThirdLayer = styled.img.attrs({
 
   z-index: 13;
 
-  margin-top: -16vh;
+  margin-top: ${getHeight(-16)};
 `;
 
 const WaterThirdLayerDirt = styled.img.attrs({
@@ -165,7 +166,7 @@ const WaterThirdLayerDirt = styled.img.attrs({
   opacity: 1;
   /* background-color: blue; */
   width: 120vw;
-  height: 20vh;
+  height: ${getHeight(20)};
   position: absolute;
   bottom: 0;
   /* left: -50vw; */
@@ -178,7 +179,7 @@ const WaterThirdLayerDirt = styled.img.attrs({
 
   z-index: 14;
 
-  margin-top: 12vh;
+  margin-top: ${getHeight(12)};
 
   will-change: opacity;
   transition: 0.5s ease-out opacity;

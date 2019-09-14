@@ -4,6 +4,8 @@ import styled from "styled-components";
 
 import bin from "./assets/kosz.png";
 
+import { getHeight } from "./Utils";
+
 const width = document.body.clientWidth;
 
 function calculateLeft(gamma, garbageRef) {
@@ -57,9 +59,9 @@ export function Garbage(props) {
 
 const Styled = styled.img`
   width: 20vw;
-  height: 12vh;
+  height: ${getHeight(12)};
   position: absolute;
-  bottom: 2vh;
+  bottom: ${getHeight(2)};
   left: ${p => p.left + "px"};
   will-change: transform;
   transform: ${p => `translateX(${p.translateX}px)`};

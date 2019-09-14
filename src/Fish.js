@@ -2,14 +2,18 @@ import React from "react";
 import styled, { keyframes } from "styled-components";
 import fishImage from "./assets/rybka.png";
 
+import { getHeight } from "./Utils";
+
 const swim = keyframes`
-0% {left: 0vw; top: 0vh}
-25% {left: calc(calc(100vw - 99px) / 2); top: 5vh; transform: rotateY(0deg)}
-49% {left: calc(100vw - 99px); top: 0vh; transform: rotateY(0deg)}
-50% {left: calc(100vw - 100px); top: 0vh; transform: rotateY(180deg)}
-75% {left: calc(calc(100vw - 100px) / 2); top: -5vh;}
-99% {left: calc(0vw + 1px); top: 0vh; transform: rotateY(180deg)}
-100% {left: 0vw; top: 0vh; transform: rotateY(0deg)}
+0% {left: 0vw; top: 0}
+25% {left: calc(calc(100vw - 99px) / 2); top: ${getHeight(
+  5
+)}; transform: rotateY(0deg)}
+49% {left: calc(100vw - 99px); top: 0; transform: rotateY(0deg)}
+50% {left: calc(100vw - 100px); top: 0; transform: rotateY(180deg)}
+75% {left: calc(calc(100vw - 100px) / 2); top: ${getHeight(-5)};}
+99% {left: calc(0vw + 1px); top: 0; transform: rotateY(180deg)}
+100% {left: 0vw; top: 0; transform: rotateY(0deg)}
 
 `;
 
@@ -20,7 +24,7 @@ const Animal = styled.div`
   height: 75px;
   /* background-color: gold; */
   /* background-image: linear-gradient(to right, red, yellow); */
-  margin-top: -24vh;
+  margin-top: ${getHeight(-24)};
   position: relative;
   bottom: 0;
 

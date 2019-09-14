@@ -5,6 +5,8 @@ import life from "./assets/serceczerwone.png";
 
 import { GameStateContext } from "./GameStateContext";
 
+import { getHeight } from "./Utils";
+
 let lives = [1, 2, 3];
 export function Lives() {
   const game = React.useContext(GameStateContext);
@@ -20,10 +22,10 @@ export function Lives() {
 
 const Styled = styled.div`
   position: absolute;
-  top: 2vh;
+  top: ${getHeight(2)};
   left: 2vw;
   width: 40vw;
-  height: 5vh;
+  height: ${getHeight(5)};
   display: flex;
   justify-content: space-between;
 `;
