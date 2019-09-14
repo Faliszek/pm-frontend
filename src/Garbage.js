@@ -2,6 +2,8 @@ import React from "react";
 
 import styled from "styled-components";
 
+import bin from "./assets/kosz.png";
+
 const width = document.body.clientWidth;
 
 function calculateLeft(gamma, garbageRef) {
@@ -48,20 +50,19 @@ export function Garbage(props) {
 
   return (
     <>
-      <Styled left={startX} translateX={newGamma} ref={garbageRef} />
-      <h1 style={{ position: "fixed", top: "10vh" }}>{gamma}</h1>
+      <Styled src={bin} left={startX} translateX={newGamma} ref={garbageRef} />
     </>
   );
 }
 
-const Styled = styled.div`
+const Styled = styled.img`
   width: 20vw;
   height: 12vh;
-  background: burlywood;
   position: absolute;
   bottom: 2vh;
   left: ${p => p.left + "px"};
   will-change: transform;
   transform: ${p => `translateX(${p.translateX}px)`};
   transition: 0.1s all ease-out;
+  object-fit: fill;
 `;

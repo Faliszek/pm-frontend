@@ -9,6 +9,8 @@ import { Sand } from "./Sand";
 
 import { Water } from "./Water";
 
+import pet from "./assets/pet.png";
+
 let s = 1000 / 60;
 
 let genX = width => Math.floor(Math.random() * (width - 20 + 1));
@@ -61,7 +63,7 @@ export function Cigarettes(props) {
         <Garbage innerRef={garbageRef} />
       </Sand>{" "}
       {game.state.cigarettes.map(c => (
-        <Pet key={c.id} style={{ top: c.top, left: c.left }} />
+        <Pet src={pet} key={c.id} style={{ top: c.top, left: c.left }} />
       ))}{" "}
       <Water />
     </Wrap>
@@ -76,7 +78,7 @@ const Wrap = styled.div`
   left: 0;
 `;
 
-const Pet = styled.div`
+const Pet = styled.img`
   position: absolute;
   height: 50px;
   width: 20px;
