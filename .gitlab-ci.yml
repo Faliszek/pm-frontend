@@ -76,7 +76,7 @@ deploy:development:
     - echo "Building development image..."
     - docker build --no-cache --tag="docker.codeheroes.io/${CI_PROJECT_NAME}:${VERSION}" .
     - echo "Pushing development image..."
-    - docker push "docker.codeheroes.io/${CI_PROJECT_NAME}:dev-${VERSION}"
+    - docker push "docker.codeheroes.io/${CI_PROJECT_NAME}:${VERSION}"
     - cd ../
 
     - echo "Cleanup..."
