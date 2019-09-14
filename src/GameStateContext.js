@@ -3,7 +3,7 @@ import * as React from "react";
 let GameStateContext = React.createContext();
 
 let initialState = {
-  gameState: "Ready", //Ready, Finished, Playing,
+  gameState: "Playing", //Ready, Finished, Playing,
   score: 0,
   lives: 3,
   cigarettes: [],
@@ -69,6 +69,10 @@ let reducer = (state, action) => {
       const s = {
         ...state,
         ...secondUpdate,
+        timeToNext:
+          secondUpdate.score > firstUpdate.score
+            ? state.timeToNext * 0.9
+            : state.timeToNext,
         cigarettes
       };
 

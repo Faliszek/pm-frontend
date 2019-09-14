@@ -2,7 +2,8 @@ import React from "react";
 
 import styled from "styled-components";
 
-import bin from "./assets/kosz.png";
+import binUp from "./assets/koszgora.png";
+import binDown from "./assets/koszdol.png";
 
 const width = document.body.clientWidth;
 
@@ -49,15 +50,23 @@ export function Garbage(props) {
   let newGamma = calculateLeft(gamma, garbageRef);
 
   return (
-    <>
-      <Styled src={bin} left={startX} translateX={newGamma} ref={garbageRef} />
-    </>
+    <Styled left={startX} translateX={newGamma} ref={garbageRef}>
+      <Image src={binUp} alt="" style={{ zIndex: 9 }} />
+      <Image src={binDown} alt="" style={{ zIndex: 20 }} />
+    </Styled>
   );
 }
 
-const Styled = styled.img`
+const Image = styled.img`
+  display: block;
+  width: 100%;
+  height: auto;
+  position: relative;
+`;
+
+const Styled = styled.div`
   width: 20vw;
-  height: 12vh;
+  height: 14vh;
   position: absolute;
   bottom: 2vh;
   left: ${p => p.left + "px"};
@@ -65,4 +74,6 @@ const Styled = styled.img`
   transform: ${p => `translateX(${p.translateX}px)`};
   transition: 0.1s all ease-out;
   object-fit: fill;
+  display: flex;
+  flex-direction: column;
 `;
