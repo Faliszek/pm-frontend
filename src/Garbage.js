@@ -47,12 +47,7 @@ export function Garbage(props) {
   console.log();
   return (
     <>
-      <Styled
-        left={startX}
-        translateX={newGamma}
-        onTouchMove={console.log}
-        ref={garbageRef}
-      />
+      <Styled left={startX} translateX={newGamma} ref={garbageRef} />
       <h1 style={{ position: "fixed", top: "10vh" }}>{gamma}</h1>
     </>
   );
