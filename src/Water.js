@@ -4,6 +4,10 @@ import { Fish } from "./Fish";
 import water1 from "./assets/fala.png";
 import water2 from "./assets/fala2.png";
 import water3 from "./assets/fala3.png";
+import waterDirt3 from "./assets/brunatna3.png";
+import waterDirt2 from "./assets/brunatna2.png";
+import waterDirt1 from "./assets/brunatna1.png";
+import { GameStateContext } from "./GameStateContext";
 
 const Wrapper = styled.div`
   height: 23vh;
@@ -58,6 +62,31 @@ const WaterFirstLayer = styled.img.attrs({
   z-index: 1;
 `;
 
+const WaterFirstLayerDirt = styled.img.attrs({
+  src: waterDirt3,
+  style: ({ opacity }) => ({
+    opacity
+  })
+})`
+  /* background-image: url(${water1}); */
+  width: 120vw;
+  height: 26vh;
+  position: absolute;
+  bottom: 0;
+  /* left: -50vw; */
+  box-sizing: border-box;
+
+  animation-iteration-count: infinite;
+  animation-timing-function: linear;
+  animation-name: ${orbit};
+  animation-duration: 5s;
+
+  z-index: 2;
+
+  will-change:opacity;
+  transition: 0.2s ease-out opacity;
+`;
+
 const WaterSecondLayer = styled.img.attrs({
   src: water2
 })`
@@ -74,9 +103,36 @@ const WaterSecondLayer = styled.img.attrs({
   animation-name: ${orbit};
   animation-duration: 6s;
 
-  z-index: 2;
+  z-index: 11;
 
   margin-top: -23vh;
+`;
+
+const WaterSecondLayerDirt = styled.img.attrs({
+  src: waterDirt2,
+  style: ({ opacity }) => ({
+    opacity
+  })
+})`
+  /* background-color: aqua; */
+  width: 120vw;
+  height: 20vh;
+  position: absolute;
+  bottom: 0;
+  /* left: -50vw; */
+  box-sizing: border-box;
+
+  animation-iteration-count: infinite;
+  animation-timing-function: linear;
+  animation-name: ${orbit};
+  animation-duration: 6s;
+
+  z-index: 12;
+
+  margin-top: 7vh;
+
+  will-change: opacity;
+  transition: 0.2s ease-out opacity;
 `;
 
 const WaterThirdLayer = styled.img.attrs({
@@ -95,17 +151,59 @@ const WaterThirdLayer = styled.img.attrs({
   animation-name: ${orbit};
   animation-duration: 4s;
 
-  z-index: 3;
+  z-index: 13;
 
   margin-top: -16vh;
 `;
 
+const WaterThirdLayerDirt = styled.img.attrs({
+  src: waterDirt1,
+  style: ({ opacity }) => ({
+    opacity
+  })
+})`
+  opacity: 1;
+  /* background-color: blue; */
+  width: 120vw;
+  height: 20vh;
+  position: absolute;
+  bottom: 0;
+  /* left: -50vw; */
+  box-sizing: border-box;
+
+  animation-iteration-count: infinite;
+  animation-timing-function: linear;
+  animation-name: ${orbit};
+  animation-duration: 4s;
+
+  z-index: 14;
+
+  margin-top: 12vh;
+
+  will-change: opacity;
+  transition: 0.5s ease-out opacity;
+`;
+
 export function Water() {
+  let gameState = React.useContext(GameStateContext);
+
+  function toOpacity(lives) {
+    return {
+      3: 0,
+      2: 0.8,
+      1: 1,
+      0: 1
+    }[lives];
+  }
+
   return (
     <Wrapper>
       <WaterFirstLayer />
+      <WaterFirstLayerDirt opacity={toOpacity(gameState.state.lives)} />
       <WaterSecondLayer />
+      <WaterSecondLayerDirt opacity={toOpacity(gameState.state.lives)} />
       <WaterThirdLayer />
+      <WaterThirdLayerDirt opacity={toOpacity(gameState.state.lives)} />
       <Fish />
     </Wrapper>
   );
