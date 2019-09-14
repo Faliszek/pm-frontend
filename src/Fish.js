@@ -29,7 +29,7 @@ const Animal = styled.div`
   animation-name: ${swim};
   animation-duration: 6s;
 
-  z-index: 7;
+  z-index: 15;
 `;
 
 const AnimalImage = styled.img.attrs({

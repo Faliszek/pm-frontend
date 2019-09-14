@@ -103,7 +103,7 @@ const WaterSecondLayer = styled.img.attrs({
   animation-name: ${orbit};
   animation-duration: 6s;
 
-  z-index: 3;
+  z-index: 11;
 
   margin-top: -23vh;
 `;
@@ -127,7 +127,7 @@ const WaterSecondLayerDirt = styled.img.attrs({
   animation-name: ${orbit};
   animation-duration: 6s;
 
-  z-index: 4;
+  z-index: 12;
 
   margin-top: 7vh;
 
@@ -151,7 +151,7 @@ const WaterThirdLayer = styled.img.attrs({
   animation-name: ${orbit};
   animation-duration: 4s;
 
-  z-index: 5;
+  z-index: 13;
 
   margin-top: -16vh;
 `;
@@ -176,7 +176,7 @@ const WaterThirdLayerDirt = styled.img.attrs({
   animation-name: ${orbit};
   animation-duration: 4s;
 
-  z-index: 6;
+  z-index: 14;
 
   margin-top: 12vh;
 
