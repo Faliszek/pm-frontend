@@ -12,6 +12,7 @@ const Wrapper = styled.div`
   overflow-x: hidden;
   overflow-y: hidden;
   bottom: 0;
+  background-color: bisque;
 `;
 
 const orbit = keyframes`
