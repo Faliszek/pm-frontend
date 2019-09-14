@@ -1,5 +1,6 @@
 import React from "react";
 import styled, { keyframes } from "styled-components";
+import { Fish } from "./Fish";
 import water1 from "./assets/fala.png";
 
 const Wrapper = styled.div`
@@ -102,6 +103,7 @@ export function Water() {
       <WaterFirstLayer></WaterFirstLayer>
       <WaterSecondLayer />
       <WaterThirdLayer />
+      <Fish />
     </Wrapper>
   );
 }
