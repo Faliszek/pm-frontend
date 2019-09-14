@@ -23,10 +23,12 @@ const Styled = styled.div`
   top: 2vh;
   left: 2vw;
   width: 40vw;
+  height: 5vh;
   display: flex;
   justify-content: space-between;
 `;
 
 const Heart = styled.img`
   width: 33%;
+  object-fit: contain;
 `;

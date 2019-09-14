@@ -3,7 +3,7 @@ import * as React from "react";
 let GameStateContext = React.createContext();
 
 let initialState = {
-  gameState: "Playing", //Ready, Finished, Playing,
+  gameState: "Ready", //Ready, Finished, Playing,
   score: 0,
   lives: 3,
   cigarettes: [],

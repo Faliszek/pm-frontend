@@ -1,10 +1,11 @@
 {
   "name": "pm-frontend-2",
-  "version": "0.0.1",
+  "version": "0.0.3",
   "private": true,
   "dependencies": {
     "lodash": "^4.17.15",
     "react": "^16.9.0",
+    "react-div-100vh": "^0.3.4",
     "react-dom": "^16.9.0",
     "react-scripts": "3.1.1",
     "styled-components": "^4.3.2"
@@ -25,9 +26,9 @@
       "not op_mini all"
     ],
     "development": [
-      "last 1 chrome version",
-      "last 1 firefox version",
-      "last 1 safari version"
+3",
+3",
+3",
     ]
   }
 }
