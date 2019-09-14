@@ -60,9 +60,9 @@ export function Cigarettes(props) {
   }, [game.state.timeToNext]);
 
   React.useEffect(() => {
-    // if (game.state.lives === 0) {
-    //   game.dispatch({ type: "updateStateGame", payload: "Finished" });
-    // }
+    if (game.state.lives === 0) {
+      game.dispatch({ type: "updateStateGame", payload: "Finished" });
+    }
   }, [game.state.lives]);
 
   return (
