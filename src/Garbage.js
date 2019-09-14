@@ -2,6 +2,8 @@ import React from "react";
 
 import styled from "styled-components";
 
+const width = document.body.clientWidth;
+
 function calculateLeft(gamma, garbageRef) {
   let newGamma = gamma;
 
@@ -12,22 +14,23 @@ function calculateLeft(gamma, garbageRef) {
   } else {
     newGamma = gamma;
   }
-  let gammaPerPx = window.screen.width / 90;
-  let garbageWidth = garbageRef.current
-    ? garbageRef.current.offsetWidth / 2
-    : 0;
+  let gammaPerPx = width / 90;
 
-  let result =
-    gamma < 0
-      ? gammaPerPx * newGamma + garbageWidth
-      : gammaPerPx * newGamma - garbageWidth;
+  // let garbageWidth = garbageRef.current
+  //   ? garbageRef.current.offsetWidth / 2
+  //   : 0;
 
-  return result;
+  // let result =
+  //   gamma < 0
+  //     ?  + garbageWidth
+  //     : gammaPerPx * newGamma - garbageWidth;
+
+  return gammaPerPx * newGamma;
 }
 
 function calculateStartX() {
-  let vh10 = window.screen.width / 10;
-  return window.screen.width / 2 - vh10;
+  let vh10 = width / 10;
+  return width / 2 - vh10;
 }
 
 export function Garbage(props) {
@@ -38,13 +41,11 @@ export function Garbage(props) {
       setGamma(event.gamma);
     };
   }, []);
-  let garbageRef = React.useRef(null);
-
-  console.log(gamma);
+  let garbageRef = props.innerRef;
 
   let startX = calculateStartX();
   let newGamma = calculateLeft(gamma, garbageRef);
-  console.log();
+
   return (
     <>
       <Styled left={startX} translateX={newGamma} ref={garbageRef} />

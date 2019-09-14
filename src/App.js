@@ -13,10 +13,7 @@ function App() {
     <GameStateProvider>
       <CigaretteProvider>
         <Layout>
-          <Cigarettes>
-            <Sand />
-            <Water />
-          </Cigarettes>
+          <Cigarettes></Cigarettes>
         </Layout>
       </CigaretteProvider>
     </GameStateProvider>
