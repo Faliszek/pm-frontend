@@ -3,6 +3,8 @@ import styled from "styled-components";
 
 import { getHeight } from "./Utils";
 
+import bg from "./assets/tlo.png";
+
 export function Sand(props) {
   return <Wrap>{props.children}</Wrap>;
 }
@@ -10,6 +12,7 @@ export function Sand(props) {
 const Wrap = styled.div`
   height: ${getHeight(80)};
   width: 100%;
-  background: bisque;
   position: relative;
+  background: url(${bg}) center center;
+  background-size: cover;
 `;

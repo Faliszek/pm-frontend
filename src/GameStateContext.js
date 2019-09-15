@@ -3,8 +3,8 @@ import * as React from "react";
 let GameStateContext = React.createContext();
 
 let initialState = {
-  gameState: "Ready", //Ready, Finished, Playing,
-  score: 0,
+  gameState: "Finished", //Ready, Finished, Playing,
+  score: 30,
   lives: 3,
   cigarettes: [],
   timeToNext: 5000
@@ -19,8 +19,6 @@ let isCatched = (ref, cigarette) => {
     cigarette.left < left + width &&
     cigarette.top >= (top + cigarette.top) / 2;
 
-  // isCatched ? onCatch() : onDrop();
-
   return isCatched;
 };
 
@@ -31,6 +29,8 @@ let reducer = (state, action) => {
 
     case "addCigarette":
       return { ...state, cigarettes: state.cigarettes.concat(action.payload) };
+    case "resetGame":
+      return { ...initialState, gameState: "Playing" };
 
     case "updateGame":
       let { garbageRef } = action.payload;

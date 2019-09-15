@@ -29,6 +29,5 @@ const Wrap = styled.div`
   flex-direction: column;
   width: 100vw;
   height: ${getHeight(100)};
-  background: tomato;
   overflow-y: hidden;
 `;
