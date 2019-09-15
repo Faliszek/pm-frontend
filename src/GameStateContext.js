@@ -70,7 +70,7 @@ let reducer = (state, action) => {
         ...state,
         ...secondUpdate,
         timeToNext:
-          secondUpdate.score > firstUpdate.score
+          secondUpdate.score !== 0 && secondUpdate.score % 10 === 0
             ? state.timeToNext * 0.9
             : state.timeToNext,
         cigarettes

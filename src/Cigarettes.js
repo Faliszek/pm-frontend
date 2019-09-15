@@ -65,6 +65,7 @@ export function Cigarettes(props) {
     if (game.state.lives === 0) {
       game.dispatch({ type: "updateStateGame", payload: "Finished" });
     }
+    //eslint-disable-next-line
   }, [game.state.lives]);
 
   return (
