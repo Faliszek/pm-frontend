@@ -1,6 +1,6 @@
 {
   "name": "pm-frontend-2",
-  "version": "0.0.6",
+  "version": "0.0.5",
   "private": true,
   "dependencies": {
     "lodash": "^4.17.15",
@@ -13,7 +13,7 @@
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
-    "test": "react-scripts test",
+    "test": "react-scripts tesst",
     "eject": "react-scripts eject"
   },
   "eslintConfig": {
@@ -26,9 +26,9 @@
       "not op_mini all"
     ],
     "development": [
-6",
-6",
-6",
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
     ]
   }
 }
