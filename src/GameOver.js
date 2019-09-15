@@ -7,3 +7,4 @@ export function GameOver() {
     </div>
   );
 }
+//Zdobylem 50 pkt, nie zdobyl
