@@ -1,6 +1,6 @@
 {
   "name": "pm-frontend-2",
-  "version": "0.0.15",
+  "version": "0.0.16",
   "private": true,
   "dependencies": {
     "lodash": "^4.17.15",
