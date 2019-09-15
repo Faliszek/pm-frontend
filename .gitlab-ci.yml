@@ -65,7 +65,7 @@ deploy:development:
     - export CURRENT_VERSION=`sed -n 's/.*\"version\"\:.\"\([0-9\.]*\)\",/\1/p' package.json`
     - export VERSION_STRIPPED=${CURRENT_VERSION#*.0.}
     - export NEXT_VERSION=$((VERSION_STRIPPED+1))
-    - export VERSION="0.${CI_JOB_ID}"
+    - export VERSION="0.${NEXT_VERSION}"
     - sed -i '/version/s/[^.]*$/'"${NEXT_VERSION}\",/" package.json
     - echo "Version updated to ${VERSION}"
 
