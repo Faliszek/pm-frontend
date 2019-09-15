@@ -101,6 +101,17 @@ export function Fish() {
     }
   }, [fishRef]);
 
+  React.useEffect(() => {
+    let intervalId = setInterval(() => {
+      if (fishRef.current) {
+        setLeftFish(fishRef.current.getBoundingClientRect().left);
+        setTopFish(fishRef.current.getBoundingClientRect().top);
+      }
+    }, 500);
+    return () => clearInterval(intervalId);
+    //eslint-disable-next-line
+  }, []);
+
   function gameStatus(stateContext) {
     if (stateContext.gameState === "Playing") {
       return (
@@ -111,13 +122,21 @@ export function Fish() {
     } else if (
       stateContext.gameState === "GameEnded" &&
       stateContext.lives < 1
+      // MODAL - Przegrana
     ) {
       return (
-        <AnimalDead left={leftFish + "vw"} top={getHeight(topFish)}>
-          {console.log(leftFish + "vw", getHeight(topFish))}
+        <AnimalDead left={leftFish + "vw"} top={topFish + "vh"}>
           <DeadAnimalImage />
         </AnimalDead>
       );
+    } else if (
+      stateContext.gameState === "GameEnded" &&
+      stateContext.lives > 0
+    ) {
+      // Modal - wygrana
+      return null;
+    } else {
+      return null;
     }
   }
 
