@@ -208,7 +208,6 @@ export function Water() {
       <WaterThirdLayer />
       <WaterThirdLayerDirt opacity={toOpacity(gameState.state.lives)} />
       <Fish />
-      {/* <Modal onClose={() => console.log("asd")} /> */}
     </Wrapper>
   );
 }
