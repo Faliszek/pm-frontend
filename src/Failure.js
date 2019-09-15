@@ -38,7 +38,7 @@ export function Failure(props) {
           <Img src={firstScreen} alt="" />
           <P color={"white"} top={"14rem"} size={"1.25rem"} weight={"400"}>
             Paląc 15 papierosów dzienie powodujesz skażenie {15 * 365} m3 wody i
-            śmierć {12 * 365} ryb w skali roku, niewyrzucając PETów do koszy!
+            śmierć {8 * 365} ryb w skali roku, niewyrzucając PETów do koszy!
           </P>
           <BtnRow bottom="10rem">
             <Button
