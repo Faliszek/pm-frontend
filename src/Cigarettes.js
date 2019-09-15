@@ -66,7 +66,7 @@ export function Cigarettes(props) {
       game.dispatch({ type: "updateStateGame", payload: "Finished" });
     }
     //eslint-disable-next-line
-  }, [game.state.lives]);
+  }, [game.state.lives, game.state.score]);
 
   return (
     <Wrap>
