@@ -122,12 +122,21 @@ export function Fish() {
     } else if (
       stateContext.gameState === "GameEnded" &&
       stateContext.lives < 1
+      // MODAL - Przegrana
     ) {
       return (
         <AnimalDead left={leftFish + "vw"} top={topFish + "vh"}>
           <DeadAnimalImage />
         </AnimalDead>
       );
+    } else if (
+      stateContext.gameState === "GameEnded" &&
+      stateContext.lives > 0
+    ) {
+      // Modal - wygrana
+      return null;
+    } else {
+      return null;
     }
   }
 
