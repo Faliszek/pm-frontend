@@ -1,12 +1,12 @@
 import React from "react";
 import styled, { keyframes } from "styled-components";
 import { Fish } from "./Fish";
-import water1 from "./assets/fala.png";
-import water2 from "./assets/fala2.png";
-import water3 from "./assets/fala3.png";
-import waterDirt3 from "./assets/brunatna3.png";
-import waterDirt2 from "./assets/brunatna2.png";
-import waterDirt1 from "./assets/brunatna1.png";
+import water1 from "./assets/poprawionafala1.png";
+import water2 from "./assets/poprawionafala2.png";
+import water3 from "./assets/poprawionafala3.png";
+import waterDirt3 from "./assets/poprawionabrunatna3.png";
+import waterDirt2 from "./assets/poprawionabrunatna2.png";
+import waterDirt1 from "./assets/poprawionabrunatna1.png";
 import { GameStateContext } from "./GameStateContext";
 import { getHeight } from "./Utils";
 
@@ -85,7 +85,7 @@ const WaterFirstLayerDirt = styled.img.attrs({
   z-index: 2;
 
   will-change:opacity;
-  transition: 0.2s ease-out opacity;
+  transition: 0.2s linear opacity;
 `;
 
 const WaterSecondLayer = styled.img.attrs({
@@ -130,10 +130,10 @@ const WaterSecondLayerDirt = styled.img.attrs({
 
   z-index: 12;
 
-  margin-top: ${getHeight(7)};
+  margin-top: ${getHeight(8)};
 
   will-change: opacity;
-  transition: 0.2s ease-out opacity;
+  transition: 0.2s linear opacity;
 `;
 
 const WaterThirdLayer = styled.img.attrs({
@@ -166,7 +166,7 @@ const WaterThirdLayerDirt = styled.img.attrs({
   opacity: 1;
   /* background-color: blue; */
   width: 120vw;
-  height: ${getHeight(20)};
+  height: ${getHeight(21)};
   position: absolute;
   bottom: 0;
   /* left: -50vw; */
@@ -182,7 +182,7 @@ const WaterThirdLayerDirt = styled.img.attrs({
   margin-top: ${getHeight(12)};
 
   will-change: opacity;
-  transition: 0.5s ease-out opacity;
+  transition: 0.8s linear opacity;
 `;
 
 export function Water() {
@@ -190,9 +190,9 @@ export function Water() {
 
   function toOpacity(lives) {
     return {
-      3: 0,
-      2: 0.8,
-      1: 1,
+      3: 0.0,
+      2: 0.4,
+      1: 0.8,
       0: 1
     }[lives];
   }
