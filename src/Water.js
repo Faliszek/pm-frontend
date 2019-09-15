@@ -9,6 +9,7 @@ import waterDirt2 from "./assets/poprawionabrunatna2.png";
 import waterDirt1 from "./assets/poprawionabrunatna1.png";
 import { GameStateContext } from "./GameStateContext";
 import { getHeight } from "./Utils";
+import { Modal } from "./Modal";
 
 const Wrapper = styled.div`
   height: ${getHeight(23)};
@@ -206,6 +207,7 @@ export function Water() {
       <WaterThirdLayer />
       <WaterThirdLayerDirt opacity={toOpacity(gameState.state.lives)} />
       <Fish />
+      {/* <Modal onClose={() => console.log("asd")} /> */}
     </Wrapper>
   );
 }

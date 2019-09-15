@@ -101,6 +101,17 @@ export function Fish() {
     }
   }, [fishRef]);
 
+  React.useEffect(() => {
+    let intervalId = setInterval(() => {
+      if (fishRef.current) {
+        setLeftFish(fishRef.current.getBoundingClientRect().left);
+        setTopFish(fishRef.current.getBoundingClientRect().top);
+      }
+    }, 500);
+    return () => clearInterval(intervalId);
+    //eslint-disable-next-line
+  }, []);
+
   function gameStatus(stateContext) {
     if (stateContext.gameState === "Playing") {
       return (
@@ -113,8 +124,7 @@ export function Fish() {
       stateContext.lives < 1
     ) {
       return (
-        <AnimalDead left={leftFish + "vw"} top={getHeight(topFish)}>
-          {console.log(leftFish + "vw", getHeight(topFish))}
+        <AnimalDead left={leftFish + "vw"} top={topFish + "vh"}>
           <DeadAnimalImage />
         </AnimalDead>
       );
