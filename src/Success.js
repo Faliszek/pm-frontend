@@ -19,15 +19,39 @@ const CopyWrap = styled.div`
 `;
 
 const TitleText = styled.div`
-  font-size: 26px;
-  font-size: 600;
+  font-size: 27px;
+  font-weight: 600;
   color: #ff9c00;
+  margin-top: 2.5rem;
+`;
+
+const SubtitleText = styled.div`
+  font-size: 24px;
+  color: #0071bc;
+  margin-top: 1rem;
+  max-width: 80%;
+  text-align: center;
+`;
+
+const PromotionInfo = styled.div`
+  font-size: 24px;
+  color: white;
+  max-width: 45%;
+  margin-top: 2rem;
+  text-align: center;
 `;
 
 export function Success() {
   return (
     <Container>
-      <CopyWrap>Success</CopyWrap>
+      <CopyWrap>
+        <TitleText>GRATULACJE!</TitleText>
+        <SubtitleText>
+          Wszystkie PETY trafiły do kosza - uratowałeś przy tym X m3 wody i Y
+          ryb
+        </SubtitleText>
+        <PromotionInfo>Oto voucher na darmowe etui</PromotionInfo>
+      </CopyWrap>
     </Container>
   );
 }
