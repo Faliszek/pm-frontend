@@ -78,6 +78,7 @@ export function Cigarettes(props) {
       </Sand>
       <Water />
       <Lives />
+
       <Score />
     </Wrap>
   );

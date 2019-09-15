@@ -5,27 +5,25 @@ import life from "./assets/serceczerwone.png";
 
 import { GameStateContext } from "./GameStateContext";
 
-import { getHeight } from "./Utils";
-
 let lives = [1, 2, 3];
 export function Lives() {
   const game = React.useContext(GameStateContext);
 
   return (
     <Styled>
-      {lives.map(
-        l => l <= <Heart key={l} src={game.state.lives ? life : lostLife} />
-      )}
+      {lives.map(l => (
+        <Heart key={l} src={l <= game.state.lives ? life : lostLife} />
+      ))}
     </Styled>
   );
 }
 
 const Styled = styled.div`
   position: absolute;
-  top: ${getHeight(2)};
+  top: 2vh;
   left: 2vw;
   width: 40vw;
-  height: ${getHeight(5)};
+  height: 5vh;
   display: flex;
   justify-content: space-between;
 `;
