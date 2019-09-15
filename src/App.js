@@ -5,9 +5,9 @@ import { GameStateProvider } from "./GameStateContext";
 import { Cigarettes } from "./Cigarettes";
 import "./reset.css";
 
-const SHARE_URL: string = process.env.REACT_APP_FB_SHARE_BOT_URL;
+const SHARE_URL: string = "http://m.me/108876870503019";
 
-const IMAGE_URL: string = process.env.REACT_APP_FB_SHARE_IMAGE_URL;
+const IMAGE_URL: string = "https://pm.dev.codeheroes.tech/rybka.png";
 
 export function startShareFlow(userId: string, callback: () => void) {
   const message = {
