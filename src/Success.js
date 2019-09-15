@@ -95,8 +95,9 @@ export function Success() {
       <CopyWrap>
         <TitleText>GRATULACJE!</TitleText>
         <SubtitleText>
-          Wszystkie PETY trafiły do kosza - uratowałeś przy tym 10 m3 wody i 8
-          ryb
+          Wszystkie PETY trafiły do kosza - uratowałeś przy tym {10 * 365} m3
+          wody i {8 * 365}
+          ryb w skali roku!
         </SubtitleText>
         <PromotionInfo>Oto voucher na darmowe etui</PromotionInfo>
         <ButtonWrapper>
