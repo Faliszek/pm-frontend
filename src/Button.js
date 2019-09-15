@@ -18,9 +18,9 @@ const Button = styled.button`
   min-height: 3rem;
   transition: 0.2s all ease-out;
   padding: 0.5rem 1rem;
-  display:flex;
-  align-items:center;
-  justify-content;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 `;
 
 const ButtonText = styled.h4`
