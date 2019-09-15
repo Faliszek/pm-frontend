@@ -7,7 +7,7 @@ let initialState = {
   score: 0,
   lives: 3,
   cigarettes: [],
-  timeToNext: 1000
+  timeToNext: 5000
 };
 
 let isCatched = (ref, cigarette) => {
