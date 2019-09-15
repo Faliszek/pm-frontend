@@ -43,7 +43,8 @@ export function ReadyView() {
       <ContentWrapper>
         <TitleText>Chcesz pomóc rybce?</TitleText>
         <Button
-          text="ZAGRAJ"
+          text="Gram"
+          background="rgb(65,115,185)"
           onClick={() =>
             gameStateContext.dispatch({
               type: "updateStateGame",

@@ -3,14 +3,11 @@ import { GameStateContext } from "./GameStateContext";
 
 import styled from "styled-components";
 import "rc-tabs/assets/index.css";
-import Tabs, { TabPane } from "rc-tabs";
-import TabContent from "rc-tabs/lib/TabContent";
 
 import Button from "./Button";
 
 import firstScreen from "./assets/koniec2.png";
-import secondScreen from "./assets/start2.png";
-import thirdScreen from "./assets/wygrana2.png";
+import secondScreen from "./assets/start3.png";
 
 export function Failure(props) {
   let [screen, setScreen] = React.useState("0");
@@ -40,7 +37,7 @@ export function Failure(props) {
         <CopyWrap>
           <Img src={firstScreen} alt="" />
           <P color={"white"} top={"14rem"} size={"1.25rem"} weight={"400"}>
-            Paląc 15 papierosów dzienie powodujesz skażenie X m3 wody i śmierć Y
+            Paląc 15 papierosów dzienie powodujesz skażenie 3 m3 wody i śmierć Y
             ryb niewyrzucając PETów do koszy!
           </P>
           <BtnRow bottom="10rem">
@@ -79,26 +76,7 @@ export function Failure(props) {
 
   return (
     <Contianer>
-      <Wrap>
-        {/* <Tabs
-          activeKey={screen}
-          renderTabBar={() => <span />}
-          renderTabContent={() => <TabContent />}
-          onChange={key => setScreen(key)}
-        >
-          <TabPane tab={""} key="0">
-            <Copy1 />
-          </TabPane>
-          <TabPane tab={""} key="1">
-            <Copy2 />
-          </TabPane>
-
-          <TabPane tab={""} key="2">
-            <Copy3 />
-          </TabPane>
-        </Tabs> */}
-        {content()}
-      </Wrap>
+      <Wrap>{content()}</Wrap>
     </Contianer>
   );
 }
@@ -109,6 +87,7 @@ const Contianer = styled.div`
 const CopyWrap = styled.div`
   width: 100vw;
   height: 100vh;
+  posiiton: relative;
 `;
 
 const Img = styled.img`
@@ -153,13 +132,4 @@ const P = styled.p`
   color: ${p => p.color};
 
   font-weight: ${p => p.weight || 400};
-`;
-
-const PMargin = styled.p`
-  max-width: 75%;
-  margin-left: 12.5%;
-  margin-bottom: 2rem;
-  font-size: 1.75rem;
-  text-align: center;
-  line-height: 1.25;
 `;
