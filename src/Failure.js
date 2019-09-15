@@ -12,14 +12,6 @@ import firstScreen from "./assets/koniec2.png";
 import secondScreen from "./assets/start2.png";
 import thirdScreen from "./assets/wygrana2.png";
 
-let Copy1 = () => <CopyWrap src={firstScreen}></CopyWrap>;
-
-let Copy2 = () => <CopyWrap src={secondScreen}></CopyWrap>;
-
-let Copy3 = () => {
-  return <CopyWrap src={thirdScreen}></CopyWrap>;
-};
-
 export function Failure(props) {
   let [screen, setScreen] = React.useState("0");
 
@@ -28,33 +20,59 @@ export function Failure(props) {
   let content = () => {
     if (screen === "0") {
       return (
-        <>
-          <Copy1></Copy1>
+        <CopyWrap>
+          <Img src={firstScreen} alt="" />
+          <P top={"14rem"} color="white" size={"1.25rem"}>
+            Właśnie kolejne ryby zginęły przez wyrzucone PETY na plażę, ulicę
+            lub do studzienki kanalizacyjnej!
+          </P>
           <BtnRow bottom="10rem">
-            <Button onClick={() => setScreen("1")} text="Dalej"></Button>
+            <Button
+              background="rgb(65,115,185)"
+              onClick={() => setScreen("1")}
+              text="Dalej"
+            ></Button>
           </BtnRow>
-        </>
+        </CopyWrap>
       );
     } else if (screen === "1") {
       return (
-        <>
-          <Copy2></Copy2>
-          <BtnRow bottom="7rem">
-            <Button onClick={() => setScreen("2")} text="Dalej"></Button>
+        <CopyWrap>
+          <Img src={firstScreen} alt="" />
+          <P color={"white"} top={"14rem"} size={"1.25rem"} weight={"400"}>
+            Paląc 15 papierosów dzienie powodujesz skażenie X m3 wody i śmierć Y
+            ryb niewyrzucając PETów do koszy!
+          </P>
+          <BtnRow bottom="10rem">
+            <Button
+              background="rgb(65,115,185)"
+              onClick={() => setScreen("2")}
+              text="Dalej"
+            ></Button>
           </BtnRow>
-        </>
+        </CopyWrap>
       );
     } else {
       return (
-        <>
-          <Copy3></Copy3>
+        <CopyWrap>
+          <Img src={secondScreen} alt="" />
+          <P size="1.5rem" top="2rem" weight="700" color="rgb(221,149,36)">
+            Mamy dla Ciebie zadanie -
+          </P>
+          <P size="1.25rem" top="5rem" color="rgb(65,115,185)" weight="400">
+            zdobąć 100 punktów w grze, udostępnij akcję znajomym i odbierz
+            voucher na darmowe etui
+          </P>
           <BtnRow
             bottom="7rem"
             onClick={() => game.dispatch({ type: "resetGame" })}
           >
-            <Button text="Zagraj jeszcze raz"></Button>
+            <Button
+              background="rgb(61, 38, 21)"
+              text="Zagraj jeszcze raz"
+            ></Button>
           </BtnRow>
-        </>
+        </CopyWrap>
       );
     }
   };
@@ -88,9 +106,14 @@ const Contianer = styled.div`
   background-color: black;
 `;
 
-const CopyWrap = styled.img`
+const CopyWrap = styled.div`
   width: 100vw;
   height: 100vh;
+`;
+
+const Img = styled.img`
+  width: 100%;
+  height: 100%;
 `;
 
 const Wrap = styled.div`
@@ -120,9 +143,16 @@ let BtnRow = styled.div`
 
 const P = styled.p`
   margin-bottom: 2rem;
-  font-size: 1.75rem;
+  font-size: ${p => p.size};
   text-align: center;
   line-height: 1.25;
+  position: absolute;
+  width: 90%;
+  margin-left: 5%;
+  top: ${p => p.top};
+  color: ${p => p.color};
+
+  font-weight: ${p => p.weight || 400};
 `;
 
 const PMargin = styled.p`

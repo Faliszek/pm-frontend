@@ -2,9 +2,8 @@ import styled from "styled-components";
 import React from "react";
 
 const Button = styled.button`
-  background-image: linear-gradient(to left, #4b9f73, #65ce8f);
-  box-shadow: 2px 2px 8px 0 rgba(83, 83, 83, 0.5);
-  border-radius: 100px;
+  background-color: ${p => p.background};
+  border-radius: 20px;
   font-size: 0.8125rem;
   font-weight: bold;
   text-align: center;
@@ -29,11 +28,10 @@ const ButtonText = styled.h4`
   font-weight: 600;
   letter-spacing: 1px;
   color: white;
-  text-transform: uppercase;
 `;
 
 const RadiusButton = props => (
-  <Button onClick={props.onClick}>
+  <Button background={props.background} onClick={props.onClick}>
     <ButtonText>{props.text}</ButtonText>
   </Button>
 );
