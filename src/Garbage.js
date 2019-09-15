@@ -53,7 +53,7 @@ export function Garbage(props) {
 
   return (
     <Styled left={startX} translateX={newGamma} ref={garbageRef}>
-      <Image src={binUp} alt="" style={{ zIndex: 9 }} />
+      <Image src={binUp} alt="bin" style={{ zIndex: 9 }} />
       <Image src={binDown} alt="" style={{ zIndex: 20 }} />
     </Styled>
   );
