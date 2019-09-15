@@ -28,7 +28,14 @@ let reducer = (state, action) => {
       return { ...state, gameState: action.payload };
 
     case "addCigarette":
-      return { ...state, cigarettes: state.cigarettes.concat(action.payload) };
+      return {
+        ...state,
+        cigarettes: state.cigarettes.concat(action.payload),
+        timeToNext:
+          state.score !== 0 && state.score % 10 === 0
+            ? state.timeToNext * 0.95
+            : state.timeToNext
+      };
     case "resetGame":
       return { ...initialState, gameState: "Playing" };
 
@@ -69,10 +76,7 @@ let reducer = (state, action) => {
       const s = {
         ...state,
         ...secondUpdate,
-        timeToNext:
-          secondUpdate.score !== 0 && secondUpdate.score % 10 === 0
-            ? state.timeToNext * 0.95
-            : state.timeToNext,
+
         cigarettes
       };
 

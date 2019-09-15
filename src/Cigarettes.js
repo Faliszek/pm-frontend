@@ -62,7 +62,7 @@ export function Cigarettes(props) {
   }, [game.state.timeToNext]);
 
   React.useEffect(() => {
-    if (game.state.lives < 1 || game.state.score >= 50) {
+    if (game.state.lives < 1 || game.state.score >= 10) {
       game.dispatch({ type: "updateStateGame", payload: "Finished" });
     }
     //eslint-disable-next-line

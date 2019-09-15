@@ -57,7 +57,7 @@ export function Failure(props) {
             Mamy dla Ciebie zadanie -
           </P>
           <P size="1.25rem" top="5rem" color="rgb(65,115,185)" weight="400">
-            zdobąć 100 punktów w grze, udostępnij akcję znajomym i odbierz
+            zdobąć 10 punktów w grze, udostępnij akcję znajomym i odbierz
             voucher na darmowe etui
           </P>
           <BtnRow
