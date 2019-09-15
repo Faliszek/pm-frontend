@@ -5,6 +5,8 @@ import styled from "styled-components";
 import binUp from "./assets/koszgora.png";
 import binDown from "./assets/koszdol.png";
 
+import { getHeight } from "./Utils";
+
 const width = document.body.clientWidth;
 
 function calculateLeft(gamma, garbageRef) {
@@ -66,9 +68,9 @@ const Image = styled.img`
 
 const Styled = styled.div`
   width: 20vw;
-  height: 14vh;
+  height: ${getHeight(14)};
   position: absolute;
-  bottom: 2vh;
+  bottom: ${getHeight(2)};
   left: ${p => p.left + "px"};
   will-change: transform;
   transform: ${p => `translateX(${p.translateX}px)`};

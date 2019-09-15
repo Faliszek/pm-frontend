@@ -1,6 +1,6 @@
 import React from "react";
 import styled from "styled-components";
-import Div100vh from "react-div-100vh";
+import { getHeight } from "./Utils";
 
 import { GameStateContext } from "./GameStateContext";
 import { ReadyView } from "./ReadyView";
@@ -21,14 +21,14 @@ export function Layout(props) {
     }
   }
 
-  return <Div100vh>{display()}</Div100vh>;
+  return display();
 }
 
 const Wrap = styled.div`
   display: flex;
   flex-direction: column;
   width: 100vw;
-  height: 100vh;
+  height: ${getHeight(100)};
   background: tomato;
   overflow-y: hidden;
 `;

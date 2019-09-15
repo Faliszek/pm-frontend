@@ -11,9 +11,9 @@ export function Lives() {
 
   return (
     <Styled>
-      {lives.map(
-        l => l <= <Heart key={l} src={game.state.lives ? life : lostLife} />
-      )}
+      {lives.map(l => (
+        <Heart key={l} src={l <= game.state.lives ? life : lostLife} />
+      ))}
     </Styled>
   );
 }

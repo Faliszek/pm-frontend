@@ -2,11 +2,13 @@ import React from "react";
 import styled from "styled-components";
 import { GameStateContext } from "./GameStateContext";
 
+import { getHeight } from "./Utils";
+
 import Button from "./Button";
 
 const Container = styled.div`
   width: 100vw;
-  height: 100vh;
+  height: ${getHeight(100)};
   overflow: hidden;
 `;
 
