@@ -1,6 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 import { getHeight } from "./Utils";
+import Button from "./Button";
 
 import backgroundImage from "./assets/wygrana2.png";
 
@@ -41,6 +42,53 @@ const PromotionInfo = styled.div`
   text-align: center;
 `;
 
+const ButtonWrapper = styled.div`
+  margin-top: 12rem;
+`;
+
+const SHARE_URL = "http://m.me/108876870503019";
+
+const IMAGE_URL = "https://pm.dev.codeheroes.tech/rybka.png";
+
+function share() {
+  const message = {
+    attachment: {
+      type: "template",
+      payload: {
+        template_type: "generic",
+        image_aspect_ratio: "square",
+        elements: [
+          {
+            title: "PM",
+            image_url: IMAGE_URL,
+            subtitle: "description",
+            default_action: {
+              type: "web_url",
+              url: SHARE_URL
+            },
+            buttons: [
+              {
+                type: "web_url",
+                url: SHARE_URL,
+                title: "Sprawdź"
+              }
+            ]
+          }
+        ]
+      }
+    }
+  };
+
+  window.MessengerExtensions.beginShareFlow(
+    function(share_response) {},
+    function(errorCode, errorMessage) {
+      console.log(errorCode, errorMessage);
+    },
+    message,
+    "broadcast"
+  );
+}
+
 export function Success() {
   return (
     <Container>
@@ -51,6 +99,13 @@ export function Success() {
           ryb
         </SubtitleText>
         <PromotionInfo>Oto voucher na darmowe etui</PromotionInfo>
+        <ButtonWrapper>
+          <Button
+            background="rgb(65,115,185)"
+            onClick={() => share()}
+            text="Udostępnij"
+          ></Button>
+        </ButtonWrapper>
       </CopyWrap>
     </Container>
   );
