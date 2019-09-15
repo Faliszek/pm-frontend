@@ -14,7 +14,7 @@ export function Layout(props) {
   function display() {
     if (activeState === "Ready") {
       return <ReadyView />;
-    } else if (activeState === "Playing") {
+    } else if (activeState === "Playing" || activeState === "GameEnded") {
       return <Wrap>{props.children}</Wrap>;
     } else if (activeState === "Finished") {
       return <GameOver />;
