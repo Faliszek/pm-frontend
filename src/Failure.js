@@ -8,9 +8,9 @@ import TabContent from "rc-tabs/lib/TabContent";
 
 import Button from "./Button";
 
-import firstScreen from "./assets/koniec.png";
-import secondScreen from "./assets/start.png";
-import thirdScreen from "./assets/wygrana.png";
+import firstScreen from "./assets/koniec2.png";
+import secondScreen from "./assets/start2.png";
+import thirdScreen from "./assets/wygrana2.png";
 
 let Copy1 = () => <CopyWrap src={firstScreen}></CopyWrap>;
 
