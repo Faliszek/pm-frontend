@@ -37,8 +37,8 @@ export function Failure(props) {
         <CopyWrap>
           <Img src={firstScreen} alt="" />
           <P color={"white"} top={"14rem"} size={"1.25rem"} weight={"400"}>
-            Paląc 15 papierosów dzienie powodujesz skażenie 3 m3 wody i śmierć Y
-            ryb niewyrzucając PETów do koszy!
+            Paląc 15 papierosów dzienie powodujesz skażenie 15 m3 wody i śmierć
+            12 ryb niewyrzucając PETów do koszy!
           </P>
           <BtnRow bottom="10rem">
             <Button
