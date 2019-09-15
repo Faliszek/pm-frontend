@@ -9,6 +9,7 @@ import waterDirt2 from "./assets/poprawionabrunatna2.png";
 import waterDirt1 from "./assets/poprawionabrunatna1.png";
 import { GameStateContext } from "./GameStateContext";
 import { getHeight } from "./Utils";
+import bg from "./assets/tlo.png";
 
 const Wrapper = styled.div`
   height: ${getHeight(23)};
@@ -17,7 +18,7 @@ const Wrapper = styled.div`
   overflow-x: hidden;
   overflow-y: hidden;
   bottom: 0;
-  background-color: bisque;
+  background: url(${bg});
 `;
 
 const orbit = keyframes`

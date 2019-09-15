@@ -6,6 +6,7 @@ import styled from "styled-components";
 
 export function Score(props) {
   const game = React.useContext(GameStateContext);
+  //chatbotId platformId userId
 
   return <Styled>{game.state.score}</Styled>;
 }

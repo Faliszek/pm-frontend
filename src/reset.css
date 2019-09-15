@@ -130,5 +130,9 @@ table {
 }
 
 body {
-  font-family: "Roboto", sans-serif;
+  font-family: "Montserrat", sans-serif;
+}
+
+.rc-tabs-top {
+  border: none;
 }

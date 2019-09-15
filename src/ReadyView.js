@@ -6,6 +6,8 @@ import { getHeight } from "./Utils";
 
 import Button from "./Button";
 
+import bg from "./assets/tlo.png";
+
 const Container = styled.div`
   width: 100vw;
   height: ${getHeight(100)};
@@ -18,8 +20,10 @@ const ContentWrapper = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  background-color: bisque;
   justify-content: space-around;
+
+  background: url(${bg}) center center;
+  background-size: cover;
 `;
 
 const TitleText = styled.div`
