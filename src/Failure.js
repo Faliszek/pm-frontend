@@ -8,56 +8,53 @@ import TabContent from "rc-tabs/lib/TabContent";
 
 import Button from "./Button";
 
-import bg from "./assets/deep-ocean-background-vector.jpg";
+import firstScreen from "./assets/koniec.png";
+import secondScreen from "./assets/start.png";
+import thirdScreen from "./assets/wygrana.png";
 
-let Copy = () => (
-  <CopyWrap>
-    <P>
-      Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur porta
-      egestas ex. Vivamus in libero ut nunc consectetur viverra. Fusce vitae
-      ligula imperdiet nibh faucibus aliquam in feugiat quam. Duis fringilla
-      venenatis arcu. Quisque sodales lorem id diam viverra, a lacinia est
-      hendrerit. Cras fringilla ac nunc nec lobortis. Interdum et malesuada
-      fames ac ante ipsum primis in faucibus. Donec interdum euismod
-      pellentesque. Mauris justo enim, cursus vitae congue ut, posuere at velit.
-    </P>
+let Copy1 = () => <CopyWrap src={firstScreen}></CopyWrap>;
 
-    <P>
-      Morbi molestie tincidunt urna nec efficitur. Maecenas imperdiet, lorem in
-      ullamcorper lacinia, ligula nisi sagittis lorem, sit amet pulvinar ex
-      neque vel lectus. Donec nunc sem, venenatis nec lorem sed, scelerisque
-      eleifend tortor. Aenean ut ante nunc. Proin tristique, augue nec accumsan
-      pharetra, ex purus consectetur neque, sit amet facilisis libero elit eget
-      dui. Ut luctus purus rhoncus mauris pretium rhoncus. Sed molestie metus et
-      porta egestas. Integer blandit dolor id lectus pretium, sed placerat
-      sapien fringilla.{" "}
-    </P>
-  </CopyWrap>
-);
+let Copy2 = () => <CopyWrap src={secondScreen}></CopyWrap>;
+
+let Copy3 = () => {
+  return <CopyWrap src={thirdScreen}></CopyWrap>;
+};
 
 export function Failure(props) {
   let [screen, setScreen] = React.useState("0");
 
   let game = React.useContext(GameStateContext);
 
-  let button = () => {
+  let content = () => {
     if (screen === "0") {
       return (
-        <BtnRow>
-          <Button onClick={() => setScreen("1")} text="Dalej"></Button>
-        </BtnRow>
+        <>
+          <Copy1></Copy1>
+          <BtnRow bottom="10rem">
+            <Button onClick={() => setScreen("1")} text="Dalej"></Button>
+          </BtnRow>
+        </>
       );
     } else if (screen === "1") {
       return (
-        <BtnRow>
-          <Button onClick={() => setScreen("2")} text="Dalej"></Button>
-        </BtnRow>
+        <>
+          <Copy2></Copy2>
+          <BtnRow bottom="7rem">
+            <Button onClick={() => setScreen("2")} text="Dalej"></Button>
+          </BtnRow>
+        </>
       );
     } else {
       return (
-        <BtnRow onClick={() => game.dispatch({ type: "resetGame" })}>
-          <Button text="Zagraj jeszcze raz"></Button>
-        </BtnRow>
+        <>
+          <Copy3></Copy3>
+          <BtnRow
+            bottom="7rem"
+            onClick={() => game.dispatch({ type: "resetGame" })}
+          >
+            <Button text="Zagraj jeszcze raz"></Button>
+          </BtnRow>
+        </>
       );
     }
   };
@@ -65,24 +62,24 @@ export function Failure(props) {
   return (
     <Contianer>
       <Wrap>
-        <Tabs
+        {/* <Tabs
           activeKey={screen}
           renderTabBar={() => <span />}
           renderTabContent={() => <TabContent />}
           onChange={key => setScreen(key)}
         >
           <TabPane tab={""} key="0">
-            <Copy />
+            <Copy1 />
           </TabPane>
           <TabPane tab={""} key="1">
-            <Copy />
+            <Copy2 />
           </TabPane>
 
           <TabPane tab={""} key="2">
-            <Copy />
+            <Copy3 />
           </TabPane>
-        </Tabs>
-        {button()}
+        </Tabs> */}
+        {content()}
       </Wrap>
     </Contianer>
   );
@@ -91,14 +88,24 @@ const Contianer = styled.div`
   background-color: black;
 `;
 
-const Wrap = styled.div`
+const CopyWrap = styled.img`
   width: 100vw;
-  min-height: 100vh;
+  height: 100vh;
+`;
 
-  background: url(${bg});
+const Wrap = styled.div`
+  width: 90vw;
+  min-height: 100vh;
+  padding-left: 5vw;
+  padding-right: 5vw;
+
   background-size: cover;
   background-position: center center;
   position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
 `;
 
 let BtnRow = styled.div`
@@ -107,13 +114,22 @@ let BtnRow = styled.div`
   width: 100%;
   align-items: center;
   justify-content: center;
+  position: absolute;
+  bottom: ${p => p.bottom};
 `;
 
 const P = styled.p`
-  margin-bottom: 1rem;
+  margin-bottom: 2rem;
+  font-size: 1.75rem;
+  text-align: center;
+  line-height: 1.25;
 `;
 
-const CopyWrap = styled.div`
-  margin: 1rem;
-  padding: 1rem;
+const PMargin = styled.p`
+  max-width: 75%;
+  margin-left: 12.5%;
+  margin-bottom: 2rem;
+  font-size: 1.75rem;
+  text-align: center;
+  line-height: 1.25;
 `;
