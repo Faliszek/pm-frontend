@@ -1,6 +1,6 @@
 {
   "name": "pm-frontend-2",
-  "version": "0.0.16",
+  "version": "0.0.17",
   "private": true,
   "dependencies": {
     "lodash": "^4.17.15",
@@ -26,9 +26,9 @@
       "not op_mini all"
     ],
     "development": [
-      "last 1 chrome version",
-      "last 1 firefox version",
-      "last 1 safari version"
+17",
+17",
+17",
     ]
   }
 }
