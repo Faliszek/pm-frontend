@@ -7,7 +7,7 @@ let initialState = {
   score: 0,
   lives: 3,
   cigarettes: [],
-  timeToNext: 2500
+  timeToNext: 1250
 };
 
 let isCatched = (ref, cigarette) => {
@@ -77,6 +77,7 @@ let reducer = (state, action) => {
         ...state,
         ...secondUpdate,
 
+        gameState: state.score >= 10 ? "Finished" : state.gameState,
         cigarettes
       };
 
